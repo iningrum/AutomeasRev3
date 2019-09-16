@@ -53,8 +53,8 @@ namespace MefWpfExample
 
         public void LoadPlugins()
         {
-            var path = @"E:\Proggen\Appz\PlugInExamples\MefWpfExample\Plugins\";
-            var catalog = new DirectoryCatalog(path, "*.dll");
+            var folder = Helper.GetDirectory("Plugins");
+            var catalog = new DirectoryCatalog(folder, "*.dll");
             var container = new CompositionContainer(catalog);
             container.SatisfyImportsOnce(this);
 
