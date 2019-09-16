@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.Linq;
 using System.Windows.Input;
 using MefWpfExample.Core;
 using ZimLabs.WpfBase;
@@ -40,6 +41,8 @@ namespace MefWpfExample
 
         public ICommand LoadPluginCommand => new DelegateCommand(LoadPlugin);
 
+        public ICommand LoadPluginCommandTest => new RelayCommand<string>(LoadPluginTest);
+
         private void LoadPlugin()
         {
             if (SelectedPlugin == null)
@@ -49,6 +52,15 @@ namespace MefWpfExample
                 Plugin = null;
 
             Plugin = SelectedPlugin.Plugin.Value;
+        }
+
+        private void LoadPluginTest(string header)
+        {
+            var plugin = _pluginList.FirstOrDefault(f => f.Metadata["PluginName"].Equals(header));
+            if (plugin != null)
+            {
+                Plugin = plugin.Value;
+            }
         }
 
         public void LoadPlugins()
@@ -65,10 +77,12 @@ namespace MefWpfExample
             {
                 if (entry.Metadata.ContainsKey("PluginName"))
                 {
+                    var name = entry.Metadata["PluginName"].ToString();
                     tmpList.Add(new MenuItemObject
                     {
-                        Name = entry.Metadata["PluginName"].ToString(),
-                        Plugin = entry
+                        Name = name,
+                        Plugin = entry,
+                        Command = new DelegateCommand(() => LoadPluginTest(name))
                     });
                 }
             }
