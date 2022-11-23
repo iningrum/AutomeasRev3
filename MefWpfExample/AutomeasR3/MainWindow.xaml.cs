@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,29 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MefWpfExample.Core;
+using AutomeasR3;
 
-namespace MefEpfExample.AnotherPlugin
+namespace AutomeasR3
 {
     /// <summary>
-    /// Interaction logic for MainControl.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    [Export(typeof(IPlugin))]
-    [ExportMetadata("PluginName", "TestPlugin2")]
-    public partial class MainControl : UserControl, IPlugin
+    public partial class MainWindow : Window
     {
-        public MainControl()
+        public MainWindow()
         {
             InitializeComponent();
         }
 
-        public void Start()
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
         {
-            
-        }
-
-        public void Stop()
-        {
+            if (DataContext is MainWindowViewModel viewModel)
+                viewModel.LoadPlugins();
         }
     }
 }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using MefWpfExample.Core;
+using AutomeasR3.Core;
 
-namespace MefWpfExample
+namespace AutomeasR3
 {
     public class MenuItemObject
     {

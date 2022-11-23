@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MefWpfExample.Core;
 
-namespace MefWpfExample
+namespace AutomeasR3.Core
 {
-    public class PluginManager
+    public interface IPlugin
     {
+        void Start();
+        void Stop();
     }
 }
