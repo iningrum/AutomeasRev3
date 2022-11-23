@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MefWpfExample.Core
+namespace AutomeasR3
 {
-    public interface IPlugin
+    public class PluginManager
     {
-        void Start();
-        void Stop();
     }
 }

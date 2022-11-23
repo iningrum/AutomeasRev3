@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ZimLabs.Utility;
 
-namespace MefWpfExample
+namespace AutomeasR3
 {
     public static class Helper
     {

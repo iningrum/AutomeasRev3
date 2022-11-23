@@ -13,25 +13,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MefWpfExample.Core;
+using AutomeasR3.Core;
 
-namespace MefEpfExample.AnotherPlugin
+namespace AutomeasR3.PluginExample
 {
     /// <summary>
-    /// Interaction logic for MainControl.xaml
+    /// Interaction logic for TestControl.xaml
     /// </summary>
     [Export(typeof(IPlugin))]
-    [ExportMetadata("PluginName", "TestPlugin2")]
-    public partial class MainControl : UserControl, IPlugin
+    [ExportMetadata("PluginName", "Fancy Plugin")]
+    public partial class TestControl : UserControl, IPlugin
     {
-        public MainControl()
+        public TestControl()
         {
             InitializeComponent();
         }
 
         public void Start()
         {
-            
         }
 
         public void Stop()

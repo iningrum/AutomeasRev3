@@ -5,10 +5,10 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Windows.Input;
-using MefWpfExample.Core;
+using AutomeasR3.Core;
 using ZimLabs.WpfBase;
 
-namespace MefWpfExample
+namespace AutomeasR3
 {
     public class MainWindowViewModel : ObservableObject
     {
